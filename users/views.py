@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from django.contrib.auth import views
 # Create your views here.
 
 def index(request):
@@ -20,3 +20,7 @@ def register(request):
 	else:
 		form = UserCreationForm()
 	return render(request, 'registration/register.html', {'form' : form, })
+
+def user_login(request):
+	template_response = views.login(request)
+	return template_response
