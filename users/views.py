@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -24,3 +24,17 @@ def register(request):
 def user_login(request):
 	template_response = views.login(request)
 	return template_response
+
+def user_logout(request):
+	template_response = views.logout(request)
+	return template_response
+
+def profile(request):
+	if request.method == 'POST':
+		new_first_name = request.POST.get("firstname",'')
+		userobject = get_object_or_404(User, username=request.user.get_username())
+		userobject.first_name = new_first_name
+		userobject.save()
+		print(userobject.first_name)
+			
+	return render(request, 'users/profile.html')
