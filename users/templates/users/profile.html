@@ -10,7 +10,7 @@ Welcome to your profile {{ user.username }}
 {% csrf_token %}
 First name: <input type="text" name="firstname" value="{{ user.first_name }}"><br>
 Last name: <input type="text" name="lastname" value="{{ user.last_name }}"><br>
-Email: <input type="text" name="lastname" value="{{ user.email }}"><br>
+Email: <input type="text" name="email" value="{{ user.email }}"><br>
 <input type="submit" value="Save">
 </form>
 
