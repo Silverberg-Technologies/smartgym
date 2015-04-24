@@ -2,7 +2,7 @@
 	<h1>List of group sessions available</h1>
 	<ul>
 	{% for session in group_sessions %}
-		<li>{{ session.name }}</li>
+		<li>{{ session.name }} - {{ session.coach }} - {{ session.date_time }}</li>
 	{% endfor %}
 	</ul>
 {% else %}
