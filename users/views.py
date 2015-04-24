@@ -2,12 +2,16 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.views import generic
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import views
 
 from django.views.decorators.cache import never_cache
+
+from users.models import Groupsession
+
 # Create your views here.
 
 def index(request):
@@ -45,3 +49,9 @@ def profile(request):
 		user.save()
 			
 	return render(request, 'users/profile.html')
+
+def group_session(request):
+	group_sessions = Groupsession.objects.all()
+	print(group_sessions)
+
+	return render(request, 'users/groupsession.html', {'group_sessions' : group_sessions})

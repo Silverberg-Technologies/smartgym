@@ -1,0 +1,10 @@
+{% if user.is_authenticated %}
+	<h1>List of group sessions available</h1>
+	<ul>
+	{% for session in group_sessions %}
+		<li>{{ session.name }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<h1>Welcome to SmartGym. Please log in <a href="{% url 'users:login' %}">HERE</a></h1>
+{% endif %}
