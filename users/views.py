@@ -51,7 +51,22 @@ def profile(request):
 	return render(request, 'users/profile.html')
 
 def group_session(request):
+	if request.method == 'POST':
+		button_id = request.POST.get("button")
+		[session_id, attending] = button_id.split(".")
+		session = get_object_or_404(Groupsession, id=session_id)
+		print("List of users attending")
+		print(session.users_attending.all())
+		print(attending)
+		if attending == "0":
+			session.users_attending.remove(request.user)
+			print("Removing user from session")
+			print("List of users attending")
+			print(session.users_attending.all())
+		else:
+			session.users_attending.add(request.user)
+			print("Adding user to session")
+			print("List of users attending")
+			print(session.users_attending.all())
 	group_sessions = Groupsession.objects.all()
-	print(group_sessions)
-
 	return render(request, 'users/groupsession.html', {'group_sessions' : group_sessions})
