@@ -36,7 +36,7 @@ def user_logout(request):
 	return template_response
 
 @never_cache
-def profile(request):
+def profile(request, code):
 	if request.method == 'POST':
 		new_first_name = request.POST.get("firstname",'')
 		new_last_name = request.POST.get("lastname", '')
@@ -47,7 +47,11 @@ def profile(request):
 		user.last_name = new_last_name
 		user.email = new_email
 		user.save()
-			
+		
+	if request.method == 'GET':
+		print(code)
+
+
 	return render(request, 'users/profile.html')
 
 def group_session(request):
