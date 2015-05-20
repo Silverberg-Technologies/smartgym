@@ -67,6 +67,7 @@ def lfconnect(request):
 		access_token = request.GET.get('access_token')
 		refresh_token = request.GET.get('refresh_token')
 		expires_in = request.GET.get('expires_in')
+		print(access_token)
 		print(expires_in)
 		print(request.user.get_username())
 		# user = get_object_or_404(User, username=request.user.get_username())
