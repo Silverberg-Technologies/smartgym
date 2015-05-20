@@ -67,6 +67,9 @@ def lfconnect(request):
 		access_token = request.GET.get('access_token')
 		refresh_token = request.GET.get('refresh_token')
 		expires_in = request.GET.get('expires_in')
+		print(request.user.get_username())
+		# user = get_object_or_404(User, username=request.user.get_username())
+
 
 def group_session(request):
 	if request.method == 'POST':
