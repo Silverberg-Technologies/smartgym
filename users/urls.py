@@ -11,4 +11,5 @@ urlpatterns = patterns('',
 	url(r'^register/', views.register, name='register'),
 	url(r'^profile/', views.profile, name='profile'),
 	url(r'^groupsession/', views.group_session, name='groupsession')
+	url(r'^lfconnect/', views.lfconnect, name='lfconnect')
 ) 

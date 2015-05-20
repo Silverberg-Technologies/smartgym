@@ -11,7 +11,7 @@ from django.contrib.auth import views
 from django.views.decorators.cache import never_cache
 
 from users.models import Groupsession
-import re
+import requests
 
 # Create your views here.
 
@@ -51,9 +51,25 @@ def profile(request):
 		
 	if request.method == 'GET':
 		code = request.GET.get('code')
-
+		if(code):
+			print(code)
+			response_data = { "grant_type":"authorization_code", 
+							"client_id":"6299bd2d816f49a890ee481beb22c07d",
+							"cleint_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
+							"code":code,
+							"redirect_uri":"http://46.101.58.27:9000/users/lfconnect"}
+			r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)				
 
 	return render(request, 'users/profile.html')
+
+def lfconnect(request):
+	if request.method == 'GET':
+		access_token = request.GET.get('access_token')
+		refresh_token = request.GET.get('refresh_token')
+		expires_in = request.GET.get('expires_in')
+		print(access_token)
+		print(refresh_token)
+		print(expires_in)
 
 def group_session(request):
 	if request.method == 'POST':
