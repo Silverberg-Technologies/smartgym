@@ -55,7 +55,7 @@ def profile(request):
 			print(code)
 			response_data = { "grant_type":"authorization_code", 
 							"client_id":"6299bd2d816f49a890ee481beb22c07d",
-							"cleint_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
+							"client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
 							"code":code,
 							"redirect_uri":"http://46.101.58.27:9000/users/lfconnect"}
 			r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)				
