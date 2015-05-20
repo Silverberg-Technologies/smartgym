@@ -11,6 +11,7 @@ from django.contrib.auth import views
 from django.views.decorators.cache import never_cache
 
 from users.models import Groupsession
+import re
 
 # Create your views here.
 
@@ -36,7 +37,7 @@ def user_logout(request):
 	return template_response
 
 @never_cache
-def profile(request, code=0):
+def profile(request):
 	if request.method == 'POST':
 		new_first_name = request.POST.get("firstname",'')
 		new_last_name = request.POST.get("lastname", '')
@@ -49,7 +50,7 @@ def profile(request, code=0):
 		user.save()
 		
 	if request.method == 'GET':
-		print(code)
+		code = request.GET.get('code')
 
 
 	return render(request, 'users/profile.html')

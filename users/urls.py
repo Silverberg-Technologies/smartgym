@@ -10,6 +10,5 @@ urlpatterns = patterns('',
 	url(r'^logout/', views.user_logout, name='logout'),
 	url(r'^register/', views.register, name='register'),
 	url(r'^profile/', views.profile, name='profile'),
-	url(r'^profile/(?P<code>(?<=\=))', views.profile, name='profile_oauths3'),
 	url(r'^groupsession/', views.group_session, name='groupsession')
 ) 
