@@ -53,6 +53,7 @@ def profile(request):
 		code = request.GET.get('code')
 		if(code):
 			redirect_uri = "http://46.101.58.27:9000/users/lfconnect/" + request.user.get_username() + "/"
+			print('Redirect URI: ' + redirect_uri)
 			response_data = { "grant_type":"authorization_code", 
 							"client_id":"6299bd2d816f49a890ee481beb22c07d",
 							"client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
@@ -62,7 +63,7 @@ def profile(request):
 	return render(request, 'users/profile.html')
 
 def lfconnect(request):
-	print(request.GET.get('access_token'))
+	print("bla")
 	if request.method == 'GET':
 		access_token = request.GET.get('access_token')
 		refresh_token = request.GET.get('refresh_token')
