@@ -59,7 +59,6 @@ def profile(request):
 							"code":code,
 							"redirect_uri":"http://46.101.58.27:9000/users/lfconnect"}
 			r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)				
-			print(response_data)
 	return render(request, 'users/profile.html')
 
 def lfconnect(request):
