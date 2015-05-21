@@ -53,16 +53,15 @@ def profile(request):
 		code = request.GET.get('code')
 		if(code):
 			redirect_uri = "http://46.101.58.27:9000/users/lfconnect/" + request.user.get_username() + "/"
-			print('Redirect URI: ' + redirect_uri)
 			response_data = { "grant_type":"authorization_code", 
 							"client_id":"6299bd2d816f49a890ee481beb22c07d",
 							"client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
 							"code":code,
-							"redirect_uri":"http://46.101.58.27:9000/users/lfconnect"}
+							"redirect_uri":redirect_uri}
 			r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)				
 	return render(request, 'users/profile.html')
 
-def lfconnect(request):
+def lfconnect(request, username):
 	print("bla")
 	if request.method == 'GET':
 		access_token = request.GET.get('access_token')
@@ -70,7 +69,7 @@ def lfconnect(request):
 		expires_in = request.GET.get('expires_in')
 		print(access_token)
 		print(expires_in)
-		print(request.user.get_username())
+		print(username)
 		# user = get_object_or_404(User, username=request.user.get_username())
 
 
