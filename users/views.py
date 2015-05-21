@@ -62,7 +62,7 @@ def profile(request):
 	return render(request, 'users/profile.html')
 
 def lfconnect(request):
-	print(request.GET.get('access_token')
+	print(request.GET.get('access_token'))
 	if request.method == 'GET':
 		access_token = request.GET.get('access_token')
 		refresh_token = request.GET.get('refresh_token')
