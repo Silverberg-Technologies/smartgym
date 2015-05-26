@@ -77,6 +77,7 @@ def lfconnect(request, username):
 		oauth2codes.access_token = access_token
 		oauth2codes.refresh_token = refresh_token
 		oauth2codes.expires_in = expires_in
+		oauth2codes.save()
 
 
 def group_session(request):
