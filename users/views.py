@@ -70,7 +70,13 @@ def lfconnect(request, username):
 		print(access_token)
 		print(expires_in)
 		print(username)
-		# user = get_object_or_404(User, username=request.user.get_username())
+		user = get_object_or_404(User, username=request.user.get_username())
+		user_id = user.id
+		print(user_id)
+		oauth2codes = get_object_or_404(Oauth2Codes, user_id=user_id)
+		oauth2codes.access_token = access_token
+		oauth2codes.refresh_token = refresh_token
+		oauth2codes.expires_in = expires_in
 
 
 def group_session(request):
