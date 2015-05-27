@@ -67,17 +67,12 @@ def lfconnect(request, username):
 		access_token = request.GET.get('access_token')
 		refresh_token = request.GET.get('refresh_token')
 		expires_in = request.GET.get('expires_in')
-		print(access_token)
-		print(expires_in)
-		print(username)
+		
 		user = get_object_or_404(User, username=username)
-		user_id = user.id
-		print(user_id)
-		oauth2codes = get_object_or_404(Oauth2Codes, user_id=user_id)
-		oauth2codes.access_token = access_token
-		oauth2codes.refresh_token = refresh_token
-		oauth2codes.expires_in = expires_in
-		oauth2codes.save()
+		oauth2codes = Oauth2Codes.objects.create(user_id=user.id,
+												access_token=access_token,
+												refresh_token=refresh_token,
+												expires_in=expires_in)
 
 
 def group_session(request):
