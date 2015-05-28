@@ -70,12 +70,12 @@ def lfconnect(request, username):
 		expires_in = request.GET.get('expires_in')
 		user = get_object_or_404(User, username=username)
 		print(user)
-		o2c = Oauth2Codes(user=user,
+		o2c = Oauth2Codes(user=user.id,
 						access_token=access_token,
 						refresh_token=refresh_token,
 						expires_in=expires_in)
-		print(o2c)
 		o2c.save(force_insert=True)
+		print(o2c)
 
 def group_session(request):
 	if request.method == 'POST':
