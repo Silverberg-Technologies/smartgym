@@ -14,10 +14,10 @@ class Groupsession(models.Model):
 	users_attending = models.ManyToManyField(User)
 
 class Oauth2Codes(models.Model):
-	user_id = models.OneToOneField(User, primary_key=True)
+	user = models.OneToOneField(User)
 	access_token = models.CharField(max_length=128)
 	refresh_token = models.CharField(max_length=128)
 	expires_in = models.IntegerField()
 
 	def __str__(self):
-			return self.user_id
+			return self.user
