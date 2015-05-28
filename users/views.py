@@ -74,7 +74,8 @@ def lfconnect(request, username):
 						access_token=access_token,
 						refresh_token=refresh_token,
 						expires_in=expires_in)
-		o2c.save(force_insert=True)
+		o2c.save()
+		print(o2c.id)
 		print(o2c)
 
 def group_session(request):
