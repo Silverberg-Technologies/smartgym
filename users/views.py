@@ -69,7 +69,7 @@ def lfconnect(request, username):
 		expires_in = request.GET.get('expires_in')
 		
 		user = get_object_or_404(User, username=username)
-		o2c = Oauth2Codes(user=user.id,
+		o2c = Oauth2Codes(user=user,
 						access_token=access_token,
 						refresh_token=refresh_token,
 						expires_in=expires_in)
