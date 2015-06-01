@@ -7,6 +7,7 @@ Compiled source #
 *.o
 *.so
 *.pyc
+*.*.pyc
 
 # Packages #
 ############
