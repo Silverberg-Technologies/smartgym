@@ -6,7 +6,8 @@ from django.views import generic
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import views
+from django.contrib.auth import views, authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from django.views.decorators.cache import never_cache
 
@@ -28,8 +29,18 @@ def register(request):
 	return render(request, 'registration/register.html', {'form' : form, })
 
 def user_login(request):
-	template_response = views.login(request)
-	return template_response
+	logout(request)
+	username = ''
+	password = ''
+	if request.POST:
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active: # Inactive account == deleted account
+				login(request, user)
+				return HttpResponseRedirect(reverse('users:profile'))
+	return render(request, 'registration/login.html')
 
 def user_logout(request):
 	template_response = views.logout(request)

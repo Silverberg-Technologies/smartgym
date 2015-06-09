@@ -10,18 +10,12 @@
 
 <form id="login" class="loginform" method="post" action="{% url 'users:login' %}">
 {% csrf_token %}
-<table class="loginform">
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+<ul>
+	<li><input type="text" name="username" placeholder="Username" />
+	<li><input type="password" name="password" placeholder="Password"></li>
+	<li><input type="submit" value="login" /></li>
+</ul>
 
-<input type="submit" value="login" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
