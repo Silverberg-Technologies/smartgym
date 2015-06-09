@@ -42,3 +42,7 @@ input[type=submit]:hover {
 	background: #60b5cf;
 	margin: 5px;
 }
+
+#loginFormList {
+	list-style: none;
+}
