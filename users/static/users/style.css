@@ -30,3 +30,15 @@ html {
 	margin-left: auto;
     margin-right: auto;
 }
+
+input[type=submit] {
+	border: none;
+	background: #147BA5;
+	margin: 5px;
+}
+
+input[type=submit]:hover {
+	border: none;
+	background: #60b5cf;
+	margin: 5px;
+}
