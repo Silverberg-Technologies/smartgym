@@ -8,9 +8,9 @@
 
 <img id="loginlogo" src="{{STATIC_URL}}users/sg_logo.png"></img>
 
-<form id="login" class="loginform" method="post" action="{% url 'users:login' %}">
+<form class="form" id="loginform" method="post" action="{% url 'users:login' %}">
 {% csrf_token %}
-<ul id="loginFormList">
+<ul>
 	<li><input type="text" name="username" placeholder="Username" />
 	<li><input type="password" name="password" placeholder="Password"></li>
 	<li><input type="submit" value="login" /></li>

@@ -6,14 +6,17 @@
 
 Welcome to your profile {{ user.username }}
 
-<form method="post" action="{% url 'users:profile' %}">
+<form class="form" method="post" action="{% url 'users:profile' %}">
 {% csrf_token %}
 <ul>
-	<li><label for="firstname">First name</label><input type="text" id="firstname" name="firstname" value="{{ user.first_name }}" /></li>
-	<li><label for="lastname">Last name</label><input type="text" id="lastname" name="lastname" value="{{ user.last_name }}" /></li>
-	<li><label for="email">Email</label><input type="text" id="email" name="email" value="{{ user.email }}"></li>
+	<li><label for="firstname">First name</label></li>
+	<li><input type="text" id="firstname" name="firstname" value="{{ user.first_name }}" /></li>
+	<li><label for="lastname">Last name</label></li>
+	<li><input type="text" id="lastname" name="lastname" value="{{ user.last_name }}" /></li>
+	<li><label for="email">Email</label></li>
+	<li><input type="text" id="email" name="email" value="{{ user.email }}"></li>
+	<li><input type="submit" value="Save"></li>
 </ul>
-<input type="submit" value="Save">
 </form>
 
 {% else %}

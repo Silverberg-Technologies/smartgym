@@ -1,15 +1,18 @@
+/* General style */
 body {
 	background: -webkit-linear-gradient(180deg, #000000 , #3c3d4b); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(180deg, #000000, #3c3d4b); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(180deg, #000000, #3c3d4b); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(180deg, #000000, #3c3d4b); /* Standard syntax */
 
+	color: #b5b5b5;
+
   	/* The below fix is needed so the gradient background does not repeat itself */
-	height: 100%;
-	margin: 0;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	color: #b5b5b5;
+	height: 100%;
+	margin: 0;
+	/* End of fix */
 }
 
 html {
@@ -17,32 +20,34 @@ html {
     height: 100%; 
 }
 
-.loginform {
+
+/* Forms */
+.form li {
+	list-style: none;
+}
+
+.form input[type=submit] {
+	border: none;
+	background: #60b5cf;
+	margin: 5px;
+}
+
+.form input[type=submit]:hover {
+	background: #147BA5;
+	border: none;
+	margin: 5px;
+}
+
+/* Login screen */
+#loginform {
+	align: center;
 	margin-left: auto;
 	margin-right: auto;
-	align: center;
 	text-align: center;
-	color: #b5b5b5;
 }
 
 #loginlogo {
 	display: block;
 	margin-left: auto;
     margin-right: auto;
-}
-
-input[type=submit] {
-	border: none;
-	background: #147BA5;
-	margin: 5px;
-}
-
-input[type=submit]:hover {
-	border: none;
-	background: #60b5cf;
-	margin: 5px;
-}
-
-#loginFormList {
-	list-style: none;
 }
