@@ -1,9 +1,11 @@
 /* General style */
 body {
-	background: -webkit-linear-gradient(180deg, #000000 , #3c3d4b); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(180deg, #000000, #3c3d4b); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(180deg, #000000, #3c3d4b); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(180deg, #000000, #3c3d4b); /* Standard syntax */
+	/* 
+	background: -webkit-linear-gradient(180deg, #000000 , #3c3d4b);
+	background: -o-linear-gradient(180deg, #000000, #3c3d4b);
+	background: -moz-linear-gradient(180deg, #000000, #3c3d4b);
+	background: linear-gradient(180deg, #000000, #3c3d4b);
+	*/
 
 	color: #b5b5b5;
 
@@ -12,6 +14,7 @@ body {
 	background-attachment: fixed;
 	height: 100%;
 	margin: 0;
+	padding: 0;
 	/* End of fix */
 }
 
@@ -19,7 +22,6 @@ html {
 	/* The below fix is needed so the gradient background does not repeat itself */
     height: 100%; 
 }
-
 
 /* Forms */
 .form li {
@@ -51,3 +53,31 @@ html {
 	margin-left: auto;
     margin-right: auto;
 }
+
+/* Navigation bar */
+nav.horizontal {
+	margin: auto;§
+	overflow: hidden;
+}
+	
+	nav.horizontal ul {
+		list-style: none;
+		background-color: #444;
+		text-align: center;
+		padding: 0;
+		margin: 0;
+	}
+
+	nav.horizontal li {
+		display: block;
+		font-family: 'Oswald', sans-serif;
+		font-size: 1.2em;
+		line-height: 40px;
+		height: 40px;
+		border-bottom: 1px solid #888;
+	}
+
+	nav.horizontal a {
+		text-decoration: none;
+		color: #fff;
+	}
