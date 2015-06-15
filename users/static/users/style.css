@@ -54,14 +54,23 @@ html {
     margin-right: auto;
 }
 
-/* Navigation bar */
+/* All navigation bars */
+nav ul {
+	list-style: none;
+}
+
+nav a {
+	text-decoration: none;
+	transition: .2s background-color;
+}
+
+/* Main Navigation bar */
 nav.horizontal {
 	margin: auto;
 	overflow: hidden;
 }
 	
 	nav.horizontal ul {
-		list-style: none;
 		background-color: #444;
 		text-align: center;
 		padding: 0;
@@ -92,10 +101,8 @@ nav.horizontal {
 	}	
 
 	nav.horizontal a {
-		text-decoration: none;
 		color: #fff;
 		display: block;
-		transition: .2s background-color;
 	}
 
 		nav.horizontal a:hover {
