@@ -61,6 +61,9 @@ def profile(request):
 			
 	return render(request, 'users/profile.html')
 
+def home(request):
+	return render(request, 'users/home.html')
+
 def group_session(request):
 	if request.method == 'POST':
 		button_id = request.POST.get("button")

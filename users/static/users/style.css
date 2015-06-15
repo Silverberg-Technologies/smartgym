@@ -80,14 +80,14 @@ nav.horizontal {
 		text-align: center;
 	}
 
-	@media screen and (min-width: 600px) {
+	@media screen and (min-width: 400px) {
 		nav.horizontal li {
-			width: 120px;
+			width: 90px;
 			border-bottom: none;
 			display: inline-block;
-			height: 50px;
-			line-height: 50px;
-			font-size: 1.4em;
+			height: 30px;
+			line-height: 30px;
+			font-size: 1em;
 		}
 	}	
 
