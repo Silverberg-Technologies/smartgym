@@ -13,7 +13,11 @@
       <ul>
         <li><a href="{% url 'users:home' %}">Home</a></li>
         <li><a href="{% url 'users:profile' %}">Profile</a></li>
+        {% if user.is_authenticated %}
         <li><a href="{% url 'users:login' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'users:login' %}">Login</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
