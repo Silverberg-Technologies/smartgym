@@ -9,6 +9,7 @@ body {
 
 	color: #fff;
 	background-color: #686868;
+	font-family: 'Oswald', sans-serif;
 
   	/* The below fix is needed so the gradient background does not repeat itself */
 	background-repeat: no-repeat;
@@ -32,13 +33,11 @@ html {
 .form input[type=submit] {
 	border: none;
 	background: #60b5cf;
-	margin: 5px;
+	margin: 5px 0px 0px 0px;
 }
 
 .form input[type=submit]:hover {
 	background: #147BA5;
-	border: none;
-	margin: 5px;
 }
 
 /* Login screen */
@@ -99,10 +98,4 @@ nav.horizontal {
 
 		nav.horizontal a:hover {
 			background-color: #147BA5;
-		}
-
-		nav.horizontal a.active {
-			background-color: #fff;
-			color: #444;
-			cursor: default;
 		}

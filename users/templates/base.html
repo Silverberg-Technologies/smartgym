@@ -12,8 +12,8 @@
     <nav class="horizontal">
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="{% url 'users:profile' %}">Profile</a></li>
+        <li><a href="{% url 'users:login' %}">Logout</a></li>
       </ul>
     </nav>
   </header>
