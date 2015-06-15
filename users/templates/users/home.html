@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+<nav class="home">
+	<ul>
+		<li>Overview</li>
+		<li>Statistcs</li>
+		<li>Program</li>
+		<li>Social</li>
+	</ul>
+</nav>
+
+{% endif %}
+
+{% endblock %}
