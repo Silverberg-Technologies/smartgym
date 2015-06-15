@@ -77,7 +77,30 @@ nav.horizontal {
 		border-bottom: 1px solid #888;
 	}
 
+	@media screen and (min-width: 600px) {
+		nav.horizontal li {
+			width: 120px;
+			border-bottom: none;
+			display: inline-block;
+			height: 50px;
+			line-height: 50px;
+			font-size: 1.4em;
+		}
+	}	
+
 	nav.horizontal a {
 		text-decoration: none;
 		color: #fff;
+		display: block;
+		transition: .2s background-color;
 	}
+
+		nav.horizontal a:hover {
+			background-color: #147BA5;
+		}
+
+		nav.horizontal a.active {
+			background-color: #fff;
+			color: #444;
+			cursor: default;
+		}
