@@ -63,19 +63,16 @@ def profile(request):
     return render(request, 'users/profile.html')
 
 def lfconnect(request, username):
-    print("bla")
     if request.method == 'GET':
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
         user = get_object_or_404(User, username=username)
-        print(user)
         o2c = Oauth2Codes(user=user,
                           access_token=access_token,
                           refresh_token=refresh_token,
                           expires_in=expires_in)
         o2c.save()
-        print(o2c)
 
 def group_session(request):
     if request.method == 'POST':
