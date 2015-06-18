@@ -1,110 +1,114 @@
 /* General style */
 body {
-	/* 
-	background: -webkit-linear-gradient(180deg, #000000 , #3c3d4b);
-	background: -o-linear-gradient(180deg, #000000, #3c3d4b);
-	background: -moz-linear-gradient(180deg, #000000, #3c3d4b);
-	background: linear-gradient(180deg, #000000, #3c3d4b);
-	*/
+    /* 
+    background: -webkit-linear-gradient(180deg, #000000 , #3c3d4b);
+    background: -o-linear-gradient(180deg, #000000, #3c3d4b);
+    background: -moz-linear-gradient(180deg, #000000, #3c3d4b);
+    background: linear-gradient(180deg, #000000, #3c3d4b);
+    */
 
-	color: #fff;
-	background-color: #686868;
-	font-family: 'Oswald', sans-serif;
+    color: #fff;
+    background-color: #686868;
+    font-family: 'Oswald', sans-serif;
 
-  	/* The below fix is needed so the gradient background does not repeat itself */
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	/* End of fix */
+    /* The below fix is needed so the gradient background does not repeat itself */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* End of fix */
 }
 
 html {
-	/* The below fix is needed so the gradient background does not repeat itself */
+    /* The below fix is needed so the gradient background does not repeat itself */
     height: 100%; 
 }
 
 /* Forms */
 .form li {
-	list-style: none;
+    list-style: none;
 }
 
 .form input[type=submit] {
-	border: none;
-	background: #60b5cf;
-	margin: 5px 0px 0px 0px;
+    border: none;
+    background: #60b5cf;
+    margin: 5px 0px 0px 0px;
 }
 
 .form input[type=submit]:hover {
-	background: #147BA5;
+    background: #147BA5;
 }
 
 /* Login screen */
 #loginform {
-	align: center;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+    align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 #loginlogo {
-	display: block;
-	margin-left: auto;
+    display: block;
+    margin-left: auto;
     margin-right: auto;
 }
 
 /* All navigation bars */
 nav ul {
-	list-style: none;
+    list-style: none;
 }
 
 nav a {
-	text-decoration: none;
-	transition: .2s background-color;
+    text-decoration: none;
+    transition: .2s background-color;
 }
 
 /* Main Navigation bar */
 nav.horizontal {
-	margin: auto;
-	overflow: hidden;
+    margin: auto;
+    overflow: hidden;
 }
-	
-	nav.horizontal ul {
-		background-color: #444;
-		text-align: center;
-		padding: 0;
-		margin: 0;
-		text-align: left;
-	}
+    
+    nav.horizontal ul {
+        background-color: #444;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
 
-	nav.horizontal li {
-		display: block;
-		font-family: 'Oswald', sans-serif;
-		font-size: 1.2em;
-		line-height: 40px;
-		height: 40px;
-		border-bottom: 1px solid #888;
-		margin-right: -4px;
-		text-align: center;
-	}
+        nav.horizontal ul ul {
+            display: none; /* Here we hide the sublists inside the main list */
+        }
 
-	@media screen and (min-width: 400px) {
-		nav.horizontal li {
-			width: 90px;
-			border-bottom: none;
-			display: inline-block;
-			height: 30px;
-			line-height: 30px;
-			font-size: 1em;
-		}
-	}	
+    nav.horizontal li {
+        display: block;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2em;
+        line-height: 40px;
+        height: 40px;
+        border-bottom: 1px solid #888;
+        margin-right: -4px;
+        text-align: center;
+    }
 
-	nav.horizontal a {
-		color: #fff;
-		display: block;
-	}
+    @media screen and (min-width: 400px) {
+        nav.horizontal li {
+            width: 90px;
+            border-bottom: none;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            font-size: 1em;
+        }
+    }   
 
-		nav.horizontal a:hover {
-			background-color: #147BA5;
-		}
+    nav.horizontal a {
+        color: #fff;
+        display: block;
+    }
+
+        nav.horizontal a:hover {
+            background-color: #147BA5;
+        }
