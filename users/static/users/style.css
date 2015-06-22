@@ -1,6 +1,6 @@
 /* General style */
 body {
-    /* 
+    /*
     background: -webkit-linear-gradient(180deg, #000000 , #3c3d4b);
     background: -o-linear-gradient(180deg, #000000, #3c3d4b);
     background: -moz-linear-gradient(180deg, #000000, #3c3d4b);
@@ -22,7 +22,7 @@ body {
 
 html {
     /* The below fix is needed so the gradient background does not repeat itself */
-    height: 100%; 
+    height: 100%;
 }
 
 /* Forms */
@@ -69,7 +69,7 @@ nav.horizontal {
     margin: auto;
     overflow: hidden;
 }
-    
+
     nav.horizontal ul {
         background-color: #444;
         text-align: center;
@@ -80,6 +80,11 @@ nav.horizontal {
 
         nav.horizontal ul ul {
             display: none; /* Here we hide the sublists inside the main list */
+        }
+
+        nav.horizontal ul li:hover ul {
+            display: block;
+            position: absolute; /* Needed so that main navigation bar does not move when showing submenu. */
         }
 
     nav.horizontal li {
@@ -102,7 +107,7 @@ nav.horizontal {
             line-height: 30px;
             font-size: 1em;
         }
-    }   
+    }
 
     nav.horizontal a {
         color: #fff;
