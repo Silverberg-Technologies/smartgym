@@ -79,13 +79,8 @@ nav.horizontal {
     }
 
         nav.horizontal ul ul {
-            display: none; /* Here we hide the sublists inside the main list */
+            display: none; /* Here we hide the sublists inside the main list so it does not show while not howering*/
         }
-
-            nav.horizontal ul li:hover ul {
-                display: block;
-                position: absolute; /* Needed so that main navigation bar does not move when showing submenu. */
-            }
 
     nav.horizontal li {
         display: block;
@@ -106,6 +101,19 @@ nav.horizontal {
             height: 30px;
             line-height: 30px;
             font-size: 1em;
+        }
+
+        nav.horizontal ul li:hover ul {
+            display: block;
+            position: absolute; /* Needed so that main navigation bar does not move when showing submenu. */
+            width: 90px;
+        }
+
+        nav.horizontal ul li ul li {
+            display: block; /* Display the submenu items as a horizontal list */
+            font-size: 1em;
+            height: 30px;
+            line-height: 30px;
         }
     }
 
