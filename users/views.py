@@ -6,7 +6,8 @@ from django.views import generic
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import views
+from django.contrib.auth import views, authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from django.views.decorators.cache import never_cache
 
@@ -30,8 +31,18 @@ def register(request):
     return render(request, 'registration/register.html', {'form' : form, })
 
 def user_login(request):
-    template_response = views.login(request)
-    return template_response
+    logout(request)
+    username = ''
+    password = ''
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active: # Inactive account == deleted account
+                login(request, user)
+                return HttpResponseRedirect(reverse('users:profile'))
+    return render(request, 'registration/login.html')
 
 def user_logout(request):
     template_response = views.logout(request)
@@ -40,9 +51,9 @@ def user_logout(request):
 @never_cache
 def profile(request):
     if request.method == 'POST':
-         new_first_name = request.POST.get("firstname",'')
-         new_last_name = request.POST.get("lastname", '')
-         new_email = request.POST.get("email", '')
+        new_first_name = request.POST.get("firstname",'')
+        new_last_name = request.POST.get("lastname", '')
+        new_email = request.POST.get("email", '')
 
          user = get_object_or_404(User, username=request.user.get_username())
          user.first_name = new_first_name
@@ -61,6 +72,9 @@ def profile(request):
                               "redirect_uri":redirect_uri}
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)                            
     return render(request, 'users/profile.html')
+
+def home(request):
+    return render(request, 'users/home.html')
 
 def lfconnect(request, username):
     if request.method == 'GET':

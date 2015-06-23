@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^logout/', views.user_logout, name='logout'),
     url(r'^register/', views.register, name='register'),
     url(r'^profile/', views.profile, name='profile'),
+    url(r'^home/', views.home, name='home'),
     url(r'^groupsession/', views.group_session, name='groupsession'),
     url(r'^lfconnect/(?P<username>.*)/', views.lfconnect, name='lfconnect')
 ) 
