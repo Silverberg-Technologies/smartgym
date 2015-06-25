@@ -6,12 +6,17 @@
 
 Welcome to your profile {{ user.username }}
 
-<form method="post" action="{% url 'users:profile' %}">
+<form class="form" method="post" action="{% url 'users:profile' %}">
 {% csrf_token %}
-First name: <input type="text" name="firstname" value="{{ user.first_name }}"><br>
-Last name: <input type="text" name="lastname" value="{{ user.last_name }}"><br>
-Email: <input type="text" name="email" value="{{ user.email }}"><br>
-<input type="submit" value="Save">
+<ul>
+    <li><label for="firstname">First name</label></li>
+    <li><input type="text" id="firstname" name="firstname" value="{{ user.first_name }}" /></li>
+    <li><label for="lastname">Last name</label></li>
+    <li><input type="text" id="lastname" name="lastname" value="{{ user.last_name }}" /></li>
+    <li><label for="email">Email</label></li>
+    <li><input type="text" id="email" name="email" value="{{ user.email }}" />
+    <li><input type="submit" value="Save"></li>
+</ul>
 </form>
 
 Connect to LFOpen
