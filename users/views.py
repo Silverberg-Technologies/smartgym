@@ -55,22 +55,22 @@ def profile(request):
         new_last_name = request.POST.get("lastname", '')
         new_email = request.POST.get("email", '')
 
-         user = get_object_or_404(User, username=request.user.get_username())
-         user.first_name = new_first_name
-         user.last_name = new_last_name
-         user.email = new_email
-         user.save()
-                
+        user = get_object_or_404(User, username=request.user.get_username())
+        user.first_name = new_first_name
+        user.last_name = new_last_name
+        user.email = new_email
+        user.save()
+
     if request.method == 'GET':
         code = request.GET.get('code')
         if(code):
             redirect_uri = "http://46.101.58.27:9000/users/lfconnect/" + request.user.get_username() + "/"
-            response_data = { "grant_type":"authorization_code", 
+            response_data = { "grant_type":"authorization_code",
                               "client_id":"6299bd2d816f49a890ee481beb22c07d",
                               "client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
                               "code":code,
                               "redirect_uri":redirect_uri}
-            r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)                            
+            r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
     return render(request, 'users/profile.html')
 
 def home(request):

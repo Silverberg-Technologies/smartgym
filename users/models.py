@@ -21,3 +21,17 @@ class Oauth2Codes(models.Model):
 
     def __str__(self):
         return self.user
+
+class LFUserProfile(models.Model):
+    age = models.IntegerField()
+    firstName = models.CharField()
+    lasName = models.CharField()
+    nickName = models.CharField()
+    gender = models.CharField() # Possible values: m/M - Male f/F - Female
+    emailAddress = models.EmailField(max_length=254)
+    height = models.FloatField()
+    heightUnit = models.CharField() # Possible values: I - Imperial (meaning height is in inches) M - Metric (meaning height is in cms)
+    weight = models.FloatField()
+    weightUnit = models.CharField() # Possible values: I - Imperial M - Metric
+    preferredUnit = models.CharField() # PUser's prefered unit used in the workouts, etc. Possible values: I - Imperial M - Metric
+    createdOn = models.DateTimeField()
