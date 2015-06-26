@@ -24,14 +24,14 @@ class Oauth2Codes(models.Model):
 
 class LFUserProfile(models.Model):
     age = models.IntegerField()
-    firstName = models.CharField()
-    lasName = models.CharField()
-    nickName = models.CharField()
-    gender = models.CharField() # Possible values: m/M - Male f/F - Female
+    firstName = models.CharField(max_length=255)
+    lasName = models.CharField(max_length=255)
+    nickName = models.CharField(max_length=255)
+    gender = models.CharField(max_length=255) # Possible values: m/M - Male f/F - Female
     emailAddress = models.EmailField(max_length=254)
     height = models.FloatField()
-    heightUnit = models.CharField() # Possible values: I - Imperial (meaning height is in inches) M - Metric (meaning height is in cms)
+    heightUnit = models.CharField(max_length=255) # Possible values: I - Imperial (meaning height is in inches) M - Metric (meaning height is in cms)
     weight = models.FloatField()
-    weightUnit = models.CharField() # Possible values: I - Imperial M - Metric
-    preferredUnit = models.CharField() # PUser's prefered unit used in the workouts, etc. Possible values: I - Imperial M - Metric
+    weightUnit = models.CharField(max_length=255) # Possible values: I - Imperial M - Metric
+    preferredUnit = models.CharField(max_length=255) # PUser's prefered unit used in the workouts, etc. Possible values: I - Imperial M - Metric
     createdOn = models.DateTimeField()
