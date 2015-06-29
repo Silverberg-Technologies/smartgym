@@ -100,7 +100,7 @@ def get_lf_data(request):
     #                  "client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
     #                  "code":code,
     #                  "redirect_uri":redirect_uri}
-    r = requests.get("http://api.lfopen.lfconnect.com/v1/user", params=payload)
+    r = requests.get("https://vtqa.lfconnect.com/web/api2/user", params=payload)
     if r.status_code is 200:
         return HttpResponse(r.content)
     else:
