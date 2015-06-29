@@ -96,10 +96,10 @@ def get_lf_data(request):
     payload = {'access_token': access_token}
     #redirect_uri = "http://46.101.58.27:9000/users/displaydata/"
     #response_data = { "grant_type":"authorization_code",
-                      "client_id":"6299bd2d816f49a890ee481beb22c07d",
-                      "client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
-                      "code":code,
-                      "redirect_uri":redirect_uri}
+    #                  "client_id":"6299bd2d816f49a890ee481beb22c07d",
+    #                  "client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
+    #                  "code":code,
+    #                  "redirect_uri":redirect_uri}
     r = requests.get("http://api.lfopen.lfconnect.com/v1/user", params=payload)
     if r.status_code is 200:
         return HttpResponse(r.content)
