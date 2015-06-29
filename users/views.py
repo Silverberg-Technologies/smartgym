@@ -92,7 +92,7 @@ def lfconnect(request, username):
 def get_lf_data(request):
     user = get_object_or_404(User, username='admin')
     oauth = get_object_or_404(Oauth2Codes, user=user, pk=3)
-    access_token = oauth.objects.values()[2]
+    access_token = oauth.objects.values()['access_token']
     payload = {'access_token': access_token}
     #redirect_uri = "http://46.101.58.27:9000/users/displaydata/"
     #response_data = { "grant_type":"authorization_code",
