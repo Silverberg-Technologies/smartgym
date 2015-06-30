@@ -50,7 +50,6 @@ def user_logout(request):
 
 @never_cache
 def profile(request):
-    user = None
     if request.method == 'POST':
         new_first_name = request.POST.get("firstname",'')
         new_last_name = request.POST.get("lastname", '')
@@ -73,7 +72,7 @@ def profile(request):
                               "redirect_uri":redirect_uri}
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
-    oauth = Oauth2Codes.objects.get(user=user)
+    oauth = Oauth2Codes.objects.get(user=request.user)
     lf_connected = False
     if oauth:
         lf_connected = True
