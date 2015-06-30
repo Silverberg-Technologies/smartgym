@@ -74,7 +74,7 @@ def profile(request):
 
     lf_connected = is_lf_connected(request.user)
     print(lf_connected)
-    return render(request, 'users/profile.html')
+    return render(request, 'users/profile.html', {'lf_connected': lf_connected})
 
 def home(request):
     return render(request, 'users/home.html')
