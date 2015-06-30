@@ -50,6 +50,7 @@ def user_logout(request):
 
 @never_cache
 def profile(request):
+    user = None
     if request.method == 'POST':
         new_first_name = request.POST.get("firstname",'')
         new_last_name = request.POST.get("lastname", '')
