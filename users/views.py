@@ -72,10 +72,12 @@ def profile(request):
                               "redirect_uri":redirect_uri}
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
-    oauth = Oauth2Codes.objects.get(user=request.user)
     lf_connected = False
-    if oauth:
+    try:
+        oauth = Oauth2Codes.objects.get(user=request.user)
         lf_connected = True
+    except Oauth2Codes.DoesNotExist:
+        pass
     print(lf_connected)
     return render(request, 'users/profile.html')
 
