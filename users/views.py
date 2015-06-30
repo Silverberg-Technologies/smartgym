@@ -61,13 +61,6 @@ def profile(request):
         user.email = new_email
         user.save()
 
-        oauth = get_object_or_404(Oauth2Codes, user=user)
-        lf_connected = False
-        if oauth:
-            lf_connected = True
-        print(lf_connected)
-
-
     if request.method == 'GET':
         code = request.GET.get('code')
         if(code):
@@ -78,6 +71,12 @@ def profile(request):
                               "code":code,
                               "redirect_uri":redirect_uri}
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
+
+    oauth = get_object_or_404(Oauth2Codes, user=user)
+    lf_connected = False
+    if oauth:
+        lf_connected = True
+    print(lf_connected)
     return render(request, 'users/profile.html')
 
 def home(request):
