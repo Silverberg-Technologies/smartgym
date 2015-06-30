@@ -5,10 +5,8 @@ from users.models import Oauth2Codes
 def is_lf_connected(username):
     try:
         user = get_object_or_404(User, username=username)
-        print(user)
         try:
             oauth = Oauth2Codes.objects.get(user=user)
-            print(oauth)
             return True
         except Oauth2Codes.DoesNotExist:
             return False
