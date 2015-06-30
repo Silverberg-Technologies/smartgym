@@ -11,8 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.views.decorators.cache import never_cache
 
-from users.models import Groupsession
-from users.models import Oauth2Codes
+from users.models import Groupsession, Oauth2Codes
+from users.utils import is_lf_connected
 import requests
 
 # Create your views here.
@@ -72,13 +72,7 @@ def profile(request):
                               "redirect_uri":redirect_uri}
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
-    lf_connected = False
-    try:
-        print(request.user)
-        oauth = Oauth2Codes.objects.get(user=request.user)
-        lf_connected = True
-    except Oauth2Codes.DoesNotExist:
-        pass
+    lf_connected = is_lf_connected(request.user)
     print(lf_connected)
     return render(request, 'users/profile.html')
 
