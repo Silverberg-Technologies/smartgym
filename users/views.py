@@ -62,9 +62,10 @@ def profile(request):
         user.save()
 
         oauth = get_object_or_404(Oauth2Codes, user=user)
-        loggedIn = False
+        lf_connected = False
         if oauth:
-            loggedIn = True
+            lf_connected = True
+        print(lf_connected)
 
 
     if request.method == 'GET':
