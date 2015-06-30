@@ -74,6 +74,7 @@ def profile(request):
 
     lf_connected = False
     try:
+        print(request.user)
         oauth = Oauth2Codes.objects.get(user=request.user)
         lf_connected = True
     except Oauth2Codes.DoesNotExist:
