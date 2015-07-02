@@ -1,4 +1,4 @@
-{% extends base.html %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -27,4 +27,5 @@
     {% else %}
     <h1>Welcome to SmartGym. Please log in <a href="{% url 'users:login' %}">HERE</a></h1>
 {% endif %}
-{% end block %}
+
+{% endblock %}
