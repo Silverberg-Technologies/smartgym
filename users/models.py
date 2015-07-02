@@ -23,9 +23,10 @@ class Oauth2Codes(models.Model):
         return self.user
 
 class LFUserProfile(models.Model):
+    user = models.OneToOneField(User)
     age = models.IntegerField()
     firstName = models.CharField(max_length=255)
-    lasName = models.CharField(max_length=255)
+    lastName = models.CharField(max_length=255)
     nickName = models.CharField(max_length=255)
     gender = models.CharField(max_length=255) # Possible values: m/M - Male f/F - Female
     emailAddress = models.EmailField(max_length=254)
