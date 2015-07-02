@@ -18,6 +18,7 @@
                         <li><a href="#">Program</a></li>
                     </ul>
                 </li>
+                <li><a href="{% url 'users:groupsession' %}">Sessions</a></li>
                 <li><a href="#">Social</a></li>
                 <li><a href="{% url 'users:profile' %}">Profile</a></li>
                 {% if user.is_authenticated %}
