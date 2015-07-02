@@ -11,9 +11,10 @@ from django.contrib.auth.decorators import login_required
 
 from django.views.decorators.cache import never_cache
 
-from users.models import Groupsession, Oauth2Codes
+from users.models import Groupsession, Oauth2Codes, LFUserProfile
 from users.utils import is_lf_connected
-import requests
+from datetime import datetime, timedelta
+import requests, pytz
 
 # Create your views here.
 
@@ -73,6 +74,8 @@ def profile(request):
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
     lf_connected = is_lf_connected(request.user)
+
+
     return render(request, 'users/profile.html', {'lf_connected': lf_connected})
 
 def home(request):
@@ -83,25 +86,20 @@ def lfconnect(request, username):
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
+        expire_time = datetime.now(pytz.utc) + timedelta(seconds=expires_in)
         user = get_object_or_404(User, username=username)
         o2c = Oauth2Codes(user=user,
                           access_token=access_token,
                           refresh_token=refresh_token,
-                          expires_in=expires_in)
+                          expire_time=expire_time)
         o2c.save()
 
 
 def get_lf_data(request):
-    user = get_object_or_404(User, username='admin')
+    user = get_object_or_404(User, username=request.user)
     oauth = get_object_or_404(Oauth2Codes, user=user)
     access_token = oauth.access_token
     payload = {'access_token': access_token}
-    #redirect_uri = "http://46.101.58.27:9000/users/displaydata/"
-    #response_data = { "grant_type":"authorization_code",
-    #                  "client_id":"6299bd2d816f49a890ee481beb22c07d",
-    #                  "client_secret":"1a4e3fb91f88d9f4d759f7cb3542d138",
-    #                  "code":code,
-    #                  "redirect_uri":redirect_uri}
     r = requests.get("https://vtqa.lfconnect.com/web/api2/user", params=payload)
     if r.status_code is 200:
         return HttpResponse(r.content)
