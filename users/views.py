@@ -102,6 +102,7 @@ def get_lf_data(request):
     payload = {'access_token': access_token}
     r = requests.get("https://vtqa.lfconnect.com/web/api2/user", params=payload)
     if r.status_code is 200:
+        print(r.content)
         return HttpResponse(r.content)
     else:
         return HttpResponse('User data not found')
