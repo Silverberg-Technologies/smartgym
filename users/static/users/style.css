@@ -64,6 +64,11 @@ nav a {
     transition: .2s background-color;
 }
 
+/* Groupsessions list */
+ul.groupsessions li{
+    display: block;
+}
+
 /* Main Navigation bar */
 nav.horizontal {
     margin: auto;
@@ -79,7 +84,7 @@ nav.horizontal {
     }
 
         nav.horizontal ul ul {
-            display: none; /* Here we hide the sublists inside the main list so it does not show while not howering*/
+            display: none; /* Here we hide the sublists inside the main list so it does not show while not howering */
         }
 
     nav.horizontal li {

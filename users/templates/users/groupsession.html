@@ -4,7 +4,7 @@
 
 {% if user.is_authenticated %}
     <h1>List of group sessions available</h1>
-    <ul>
+    <ul class="groupsessions">
         {% for session in group_sessions %}
             <li>
                 {{ session.name }} -
