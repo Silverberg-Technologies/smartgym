@@ -38,7 +38,7 @@ def get_valid_access_token(oauth):
     fetch an access token. If it is expired,
     a new one is requested from LFConnect.
     """
-    expire_time = oauth['expire_time']
+    expire_time = oauth.expire_time
     is_valid = datetime.now(pytz.utc) - expire_time < timedelta(seconds=0)
     if is_valid:
         return oauth['access_token']
@@ -46,7 +46,7 @@ def get_valid_access_token(oauth):
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
-                         "refresh_token": oauth['refresh_token']
+                         "refresh_token": oauth.access_token
                        }
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
         if response.status_code is 200:
