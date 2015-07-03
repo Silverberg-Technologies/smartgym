@@ -48,7 +48,7 @@ def get_valid_access_token(oauth):
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
                          "refresh_token": oauth['refresh_token']
                        }
-        response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess",\request_data)
+        response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
         if response.status_code is 200:
             print(response.content) 
         else:
