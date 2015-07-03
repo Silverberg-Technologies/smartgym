@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from users.models import Oauth2Codes
 
 from datetime import datetime, timedelta
-import cElementTree as ElementTree
+#import cElementTree as ElementTree
 import pytz, requests
 
 def is_lf_connected(username):
