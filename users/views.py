@@ -73,7 +73,7 @@ def profile(request):
                               "redirect_uri":redirect_uri}
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
-    lf_connected = is_lf_connected(request.user)
+    lf_connected, access_token = is_lf_connected(request.user)
 
 
     return render(request, 'users/profile.html', {'lf_connected': lf_connected})
