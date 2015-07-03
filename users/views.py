@@ -86,7 +86,7 @@ def lfconnect(request, username):
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
-        expire_time = datetime.now(pytz.utc) + timedelta(seconds=expires_in)
+        expire_time = datetime.now(pytz.utc) + timedelta(seconds=int(expires_in))
         user = get_object_or_404(User, username=username)
         o2c = Oauth2Codes(user=user,
                           access_token=access_token,
