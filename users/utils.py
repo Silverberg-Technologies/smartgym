@@ -41,6 +41,7 @@ def get_valid_access_token(oauth):
     expire_time = oauth.expire_time
     is_valid = datetime.now(pytz.utc) - expire_time < timedelta(seconds=0)
     if is_valid:
+        print oauth.access_token
         return oauth.access_token
     else:
         request_data = { "grant_type": "refresh_token",
