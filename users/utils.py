@@ -57,7 +57,7 @@ def get_valid_access_token(oauth):
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
         if response.status_code is 200:
             print("Access token response")
-            print(response.content) 
+            print(response.GET['access_token']) 
         else:
             print("Access token response (invalid)")
             print(response.content)
