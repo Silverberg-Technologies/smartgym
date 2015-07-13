@@ -109,7 +109,7 @@ def get_lf_data(request):
 
 def access_token_refresh(request):
     print(request.GET)
-    return None
+    return HttpResponse("Access token refresh")
 
 #def displaydata(request, data):
 #    return HttpResponse(data)
