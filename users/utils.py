@@ -56,13 +56,14 @@ def get_valid_access_token(oauth):
                          "redirect_uri": "http://46.101.58.27:9000/users/accesstoken"
                        }
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
-        if response.status_code is 200:
-            print("Access token response")
-            print(response.content) 
-        else:
-            print("Access token response (invalid)")
-            print(response.content)
-            return None
+    return oauth.access_token
+        #if response.status_code is 200:
+        #    print("Access token response")
+        #    print(response.content) 
+        #else:
+        #    print("Access token response (invalid)")
+        #    print(response.content)
+        #    return None
 
 
 
