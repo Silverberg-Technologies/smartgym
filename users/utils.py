@@ -48,6 +48,7 @@ def get_valid_access_token(oauth):
         return oauth.access_token
     else:
         print("Access token is invalid, requesting a new one")
+        print("Refresh token %" % oauth.access_token)
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
@@ -57,7 +58,7 @@ def get_valid_access_token(oauth):
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
         if response.status_code is 200:
             print("Access token response")
-            print(response.GET['access_token']) 
+            print(response.content) 
         else:
             print("Access token response (invalid)")
             print(response.content)
