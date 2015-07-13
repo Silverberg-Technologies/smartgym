@@ -48,6 +48,7 @@ def get_valid_access_token(oauth):
         return oauth.access_token
     else:
         print("Access token is invalid, requesting a new one")
+        print("Oauth: %s" % oauth)
         print("Refresh token %s" % oauth.refresh_token)
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
