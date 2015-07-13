@@ -52,7 +52,7 @@ def get_valid_access_token(oauth):
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
-                         "refresh_token": oauth.refresh_token
+                         "refresh_token": oauth.refresh_token,
                          "redirect_uri": "http://46.101.58.27:9000/users/accesstoken"
                        }
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
