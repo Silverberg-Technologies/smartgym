@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.core.urlresolvers import reverse
 from django.views import generic
 
@@ -109,8 +109,19 @@ def get_lf_data(request):
         return HttpResponse('User data not found')
 
 def access_token_refresh(request):
-    print(request.GET)
-    return HttpResponse(request.GET)
+    if request.method == 'GET':
+        access_token = request.GET.get('access_token')
+        refresh_token = request.GET.get('refresh_token')
+        expires_in = request.GET.get('expires_in')
+        expire_time = datetime.now(pytz.utc) + timedelta(seconds=int(expires_in))
+        user = get_object_or_404(User, username=username)
+        o2c = Oauth2Codes(user=user,
+                          access_token=access_token,
+                          refresh_token=refresh_token,
+                          expire_time=expire_time)
+        o2c.save()
+        return HttpResponse(status=200)
+    return HttpResponseNotFound()
 
 #def displaydata(request, data):
 #    return HttpResponse(data)
