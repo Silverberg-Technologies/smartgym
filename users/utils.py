@@ -1,3 +1,5 @@
+""" Various utility functions for the users module """
+
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 
@@ -41,9 +43,11 @@ def get_valid_access_token(oauth):
     expire_time = oauth.expire_time
     is_valid = datetime.now(pytz.utc) - expire_time < timedelta(seconds=0)
     if is_valid:
+        print("Access token is valid")
         print(oauth.access_token)
         return oauth.access_token
     else:
+        print("Access token is invalid, requesting a new one")
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
@@ -51,8 +55,11 @@ def get_valid_access_token(oauth):
                        }
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
         if response.status_code is 200:
+            print("Access token response")
             print(response.content) 
         else:
+            print("Access token response (invalid)")
+            print(response.content)
             return None
 
 
