@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^groupsession/', views.group_session, name='groupsession'),
     url(r'^lfconnect/(?P<username>.*)/', views.lfconnect, name='lfconnect'),
     url(r'^lfdata/$', views.get_lf_data, name='lfdata'),
+    url(r'^accesstoken/$', views.access_token_refresh, name='accesstoken'),
 ) 
