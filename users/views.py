@@ -105,6 +105,7 @@ def get_lf_data(request):
         print(r.content)
         return HttpResponse(r.content)
     else:
+        print(r.content)
         return HttpResponse('User data not found')
 
 def access_token_refresh(request):
