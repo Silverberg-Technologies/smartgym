@@ -108,7 +108,8 @@ def get_lf_data(request):
         return HttpResponse('User data not found')
 
 def access_token_refresh(request):
-    if request.method == 'GET':
+    print("User is authenticated: %b" % request.user.is_authenticated())
+    if request.method == 'GET' and request.user.is_authenticated():
         print('Trying to refresh token for user %s' % request.user)
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
