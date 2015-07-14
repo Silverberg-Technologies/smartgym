@@ -109,7 +109,7 @@ def get_lf_data(request):
 
 def access_token_refresh(request):
     print("Token refresh")
-    print("User is authenticated: %b" % request.user.is_authenticated())
+    print("User is authenticated: %s" % request.user.is_authenticated())
     if request.method == 'GET' and request.user.is_authenticated():
         print('Trying to refresh token for user %s' % request.user)
         access_token = request.GET.get('access_token')
