@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.core.urlresolvers import reverse
-from django.views import generic
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
