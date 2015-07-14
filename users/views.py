@@ -109,6 +109,7 @@ def get_lf_data(request):
 
 def access_token_refresh(request):
     if request.method == 'GET':
+        print('Trying to refresh token')
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
@@ -119,6 +120,7 @@ def access_token_refresh(request):
                           refresh_token=refresh_token,
                           expire_time=expire_time)
         o2c.save()
+        print('Token should have been refreshed')
         return HttpResponse(status=200)
     return HttpResponseNotFound()
 
