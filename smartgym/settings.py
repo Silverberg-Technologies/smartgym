@@ -60,6 +60,7 @@ TEMPLATES = [
         'OPTIONS': { 
             'context_processors': [
                 'django.core.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
             ],
         }
     },
