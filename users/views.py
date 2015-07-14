@@ -114,11 +114,12 @@ def access_token_refresh(request):
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
         expire_time = datetime.now(pytz.utc) + timedelta(seconds=int(expires_in))
-        user = get_object_or_404(User, username=username)
-        o2c = Oauth2Codes(user=user,
-                          access_token=access_token,
-                          refresh_token=refresh_token,
-                          expire_time=expire_time)
+        user = get_object_or_404(User, username=request.user)
+        print('User fetch successful')
+        o2c = Oauth2Codes.objects.get(user=user)
+        o2c.access_token=access_token
+        o2c.refresh_token=refresh_token
+        o2c.expire_time=expire_time
         o2c.save()
         print('Token should have been refreshed')
         return HttpResponse(status=200)
