@@ -109,7 +109,7 @@ def get_lf_data(request):
 
 def access_token_refresh(request):
     if request.method == 'GET':
-        print('Trying to refresh token')
+        print('Trying to refresh token for user %s' % request.user)
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
