@@ -49,7 +49,7 @@ def get_valid_access_token(username, oauth):
     else:
         print("Access token is invalid, requesting a new one")
         print("Refresh token %s" % oauth.refresh_token)
-        redirect_uri = "http://46.101.58.27:9000/users/accesstoken/" + username
+        redirect_uri = "http://46.101.58.27:9000/users/accesstoken/" + str(username)
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
