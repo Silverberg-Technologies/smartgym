@@ -42,7 +42,7 @@ def get_valid_access_token(username, oauth):
     """
     expire_time = oauth.expire_time
     is_valid = datetime.now(pytz.utc) - expire_time < timedelta(seconds=0)
-    if not is_valid:
+    if is_valid:
         print("Access token is valid")
         print(oauth.access_token)
         return oauth.access_token
