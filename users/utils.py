@@ -43,12 +43,8 @@ def get_valid_access_token(username, oauth):
     expire_time = oauth.expire_time
     is_valid = datetime.now(pytz.utc) - expire_time < timedelta(seconds=0)
     if is_valid:
-        print("Access token is valid")
-        print(oauth.access_token)
         return oauth.access_token
     else:
-        print("Access token is invalid, requesting a new one")
-        print("Refresh token %s" % oauth.refresh_token)
         redirect_uri = "http://46.101.58.27:9000/users/accesstoken/" + str(username)
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
@@ -58,13 +54,6 @@ def get_valid_access_token(username, oauth):
                        }
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
     return oauth.access_token
-        #if response.status_code is 200:
-        #    print("Access token response")
-        #    print(response.content) 
-        #else:
-        #    print("Access token response (invalid)")
-        #    print(response.content)
-        #    return None
 
 
 
