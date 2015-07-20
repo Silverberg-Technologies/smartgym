@@ -107,16 +107,15 @@ def get_lf_data(request):
         print(r.content)
         return HttpResponse('User data not found')
 
-def access_token_refresh(request):
+def access_token_refresh(request, username):
     print("Token refresh")
-    print("User is authenticated: %s" % request.user.is_authenticated())
-    if request.method == 'GET' and request.user.is_authenticated():
-        print('Trying to refresh token for user %s' % request.user)
+    if request.method == 'GET': 
+        print('Trying to refresh token for user %s' % username)
         access_token = request.GET.get('access_token')
         refresh_token = request.GET.get('refresh_token')
         expires_in = request.GET.get('expires_in')
         expire_time = datetime.now(pytz.utc) + timedelta(seconds=int(expires_in))
-        user = get_object_or_404(User, username=request.user)
+        user = get_object_or_404(User, username=username)
         print('User fetch successful')
         o2c = Oauth2Codes.objects.get(user=user)
         o2c.access_token=access_token

@@ -19,7 +19,7 @@ def is_lf_connected(username):
     user = get_object_or_404(User, username=username)
     try:
         oauth = Oauth2Codes.objects.get(user=user)
-        access_token = get_valid_access_token(oauth)
+        access_token = get_valid_access_token(username, oauth)
         return (True, access_token)
     except Oauth2Codes.DoesNotExist:
         return (False, None)
@@ -34,7 +34,7 @@ def get_lf_data(access_token):
 
 
 
-def get_valid_access_token(oauth):
+def get_valid_access_token(username, oauth):
     """
     Uses the supplied oauth instance to
     fetch an access token. If it is expired,
@@ -49,11 +49,12 @@ def get_valid_access_token(oauth):
     else:
         print("Access token is invalid, requesting a new one")
         print("Refresh token %s" % oauth.refresh_token)
+        redirect_uri = "http://46.101.58.27:9000/users/accesstoken/" + username
         request_data = { "grant_type": "refresh_token",
                          "client_id": "6299bd2d816f49a890ee481beb22c07d",
                          "client_secret": "1a4e3fb91f88d9f4d759f7cb3542d138",
                          "refresh_token": oauth.refresh_token,
-                         "redirect_uri": "http://46.101.58.27:9000/users/accesstoken"
+                         "redirect_uri": redirect_uri
                        }
         response = requests.post("https://vtqa.lfconnect.com/web/refreshaccess", request_data)
     return oauth.access_token

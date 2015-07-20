@@ -53,18 +53,18 @@ ROOT_URLCONF = 'smartgym.urls'
 
 WSGI_APPLICATION = 'smartgym.wsgi.application'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'OPTIONS': { 
-            'context_processors': [
-                'django.core.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-            ],
-        }
-    },
-]
+#TEMPLATES = [
+#    {
+#        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#        'APP_DIRS': True,
+#        'OPTIONS': { 
+#            'context_processors': [
+#                'django.core.context_processors.request',
+#                'django.contrib.auth.context_processors.auth',
+#            ],
+#        }
+#    },
+#]
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
