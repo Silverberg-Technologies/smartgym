@@ -19,6 +19,20 @@ Welcome to your profile {{ user.username }}
 </ul>
 </form>
 
+<div>
+    <p>Profile info from LFConnect</p>
+    <table>
+        {% for item in lf_data %}
+        <tr>
+            <td>{{item}}</td>
+            <td>{{lf_data[item]}}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+             
+
+
 {% if not lf_connected %}
 
 Connect to LFOpen
