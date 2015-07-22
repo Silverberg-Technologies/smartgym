@@ -3,8 +3,10 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
+    {% block js %}
+    <script type="text/javascript" src="/static/js/jquery-1.1.4-min.js"></script>
+    {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
-    <script type="text/javascript" src="/static/jquery-2.1.4-min.js"></script></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>{% block title %}{% endblock %}</title>
 </head>

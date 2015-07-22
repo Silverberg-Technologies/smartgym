@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="/static/js/profile.js"></script>
+{% endblock %}
+
 {% block content %}
 
 {% if user.is_authenticated %}
