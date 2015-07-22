@@ -2,10 +2,11 @@
 
 <html lang="en">
 <head>
-                {% load staticfiles %}
-                <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-                <title>{% block title %}{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
+    <script type="text/javascript" src="/static/jquery-2.1.4-min.js"></script></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body id="{% block body_id %}{% endblock %}">
     <header>
