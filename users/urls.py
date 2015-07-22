@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^lfconnect/(?P<username>.*)/', views.lfconnect, name='lfconnect'),
     url(r'^lfdata/$', views.get_lf_data, name='lfdata'),
     url(r'^accesstoken/(?P<username>.*)/', views.access_token_refresh, name='accesstoken'),
+    url(r'static/(?P<path>.*)$', 'django.views.static.serve'),
 ) 
