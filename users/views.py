@@ -73,10 +73,12 @@ def profile(request):
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
     lf_connected, access_token = is_lf_connected(request.user)
-    print(get_lf_data(access_token))
+    lf_data = get_lf_data(access_token)
 
-
-    return render(request, 'users/profile.html', {'lf_connected': lf_connected})
+    context = {'lf_connected': lf_connected,
+               'lf_data': lf_data,
+              }
+    return render(request, 'users/profile.html', context)
 
 def home(request):
     return render(request, 'users/home.html')
