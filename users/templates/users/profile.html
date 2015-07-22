@@ -22,10 +22,10 @@ Welcome to your profile {{ user.username }}
 <div>
     <p>Profile info from LFConnect</p>
     <table>
-        {% for item in lf_data %}
+        {% for key, value in lf_data %}
         <tr>
-            <td>{{item}}</td>
-            <td>{{lf_data[item]}}
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
         </tr>
         {% endfor %}
     </table>
