@@ -33,7 +33,7 @@ def get_lf_data(access_token):
     LFUserProfile model, if LF connection is successful.
     """
     payload = {"access_token": access_token}
-    r = requests.get("https://vtqa.lfconnect.com/web/api2/user", payload)
+    r = requests.get("https://vtqa.lfconnect.com/web/api2/user", params=payload)
     xmlstr = r.content.decode('utf-8')
     if 'LFUser' in xmlstr:
         root = xmltree.fromstring(xmlstr)
