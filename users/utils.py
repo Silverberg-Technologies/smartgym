@@ -6,8 +6,9 @@ from django.contrib.auth.models import User
 from users.models import Oauth2Codes
 
 from datetime import datetime, timedelta
-#import cElementTree as ElementTree
-import pytz, requests
+import xml.etree.ElementTree as xmltree
+import pytz
+import requests
 
 def is_lf_connected(username):
     """ 
@@ -29,8 +30,19 @@ def get_lf_data(access_token):
     Get data from LFConnect that is associated
     with a certain access token.
     Returns a dictionary with the fields from the 
-    LFUserProfile model.
+    LFUserProfile model, if LF connection is successful.
     """
+    payload = {"access_token": access_token}
+    r = requests.get("https://vtqa.lfconnect.com/web/api2/user", payload)
+    xmlstr = r.content.decode('utf-8')
+    if 'LFUser' in xmlstr:
+        root = xmltree.fromstring(xmlstr)
+        lfmodel = {}
+        for child in root:
+           lfmodel[child.tag] = child.text
+        return lfmodel
+    else:
+        return None
 
 
 

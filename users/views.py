@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 
 from users.models import Groupsession, Oauth2Codes, LFUserProfile
-from users.utils import is_lf_connected
+from users.utils import is_lf_connected, get_lf_data
 from datetime import datetime, timedelta
 import requests, pytz
 
@@ -73,6 +73,7 @@ def profile(request):
             r = requests.post("https://vtqa.lfconnect.com/web/authorizeresponse", response_data)
 
     lf_connected, access_token = is_lf_connected(request.user)
+    print(get_lf_data(access_token))
 
 
     return render(request, 'users/profile.html', {'lf_connected': lf_connected})
@@ -94,18 +95,18 @@ def lfconnect(request, username):
         o2c.save()
 
 
-def get_lf_data(request):
-    user = get_object_or_404(User, username=request.user)
-    oauth = get_object_or_404(Oauth2Codes, user=user)
-    access_token = oauth.access_token
-    payload = {'access_token': access_token}
-    r = requests.get("https://vtqa.lfconnect.com/web/api2/user", params=payload)
-    if r.status_code is 200:
-        print(r.content)
-        return HttpResponse(r.content)
-    else:
-        print(r.content)
-        return HttpResponse('User data not found')
+#def get_lf_data(request):
+#    user = get_object_or_404(User, username=request.user)
+#    oauth = get_object_or_404(Oauth2Codes, user=user)
+#    access_token = oauth.access_token
+#    payload = {'access_token': access_token}
+#    r = requests.get("https://vtqa.lfconnect.com/web/api2/user", params=payload)
+#    if r.status_code is 200:
+#        print(r.content)
+#        return HttpResponse(r.content)
+#    else:
+#        print(r.content)
+#        return HttpResponse('User data not found')
 
 def access_token_refresh(request, username):
     if request.method == 'GET': 
