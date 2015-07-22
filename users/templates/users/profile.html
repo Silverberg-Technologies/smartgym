@@ -22,7 +22,7 @@ Welcome to your profile {{ user.username }}
 <div>
     <p>Profile info from LFConnect</p>
     <table>
-        {% for key, value in lf_data %}
+        {% for key, value in lf_data.items %}
         <tr>
             <td>{{ key }}</td>
             <td>{{ value }}</td>
