@@ -12,19 +12,37 @@
 
 Welcome to your profile {{ user.username }}
 
-<form class="form" method="post" action="{% url 'users:profile' %}">
-{% csrf_token %}
-<ul>
-    <li><label for="firstname">First name</label></li>
-    <li><input type="text" id="firstname" name="firstname" value="{{ user.first_name }}" /></li>
-    <li><label for="lastname">Last name</label></li>
-    <li><input type="text" id="lastname" name="lastname" value="{{ user.last_name }}" /></li>
-    <li><label for="email">Email</label></li>
-    <li><input type="text" id="email" name="email" value="{{ user.email }}" />
-    <li><input type="submit" value="Save"></li>
-</ul>
-</form>
-
+<div class="editmode">
+    <form class="form" method="post" action="{% url 'users:profile' %}">
+    {% csrf_token %}
+    <ul>
+        <li><label for="firstname">First name</label></li>
+        <li><input type="text" id="firstname" name="firstname" value="{{ user.first_name }}" /></li>
+        <li><label for="lastname">Last name</label></li>
+        <li><input type="text" id="lastname" name="lastname" value="{{ user.last_name }}" /></li>
+        <li><label for="email">Email</label></li>
+        <li><input type="text" id="email" name="email" value="{{ user.email }}" />
+        <li><input type="submit" value="Save"></li>
+    </ul>
+    </form>
+</div>
+<div class="viewmode">
+    <table>
+        <tr>
+            <td>First name:</td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+</div>
+<button type="button">Edit</button>
 <div>
     <p>Profile info from LFConnect</p>
     <table>
