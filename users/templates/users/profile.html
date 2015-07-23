@@ -5,6 +5,9 @@
     {{ block.super }}
     <script type="text/javascript" src="{% static "users/js/profile.js" %}"></script>
 {% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/profile.css' %}" />
+{% endblock %}
 
 {% block content %}
 

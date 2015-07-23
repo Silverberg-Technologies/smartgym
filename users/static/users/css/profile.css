@@ -1,0 +1,8 @@
+
+div.viewmode {
+    visibility: visible;
+}
+
+div.editmode {
+    visibility: hidden;
+}
