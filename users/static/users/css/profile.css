@@ -1,8 +1,10 @@
 
 div.viewmode {
     visibility: visible;
+    height: 100%;
 }
 
 div.editmode {
     visibility: hidden;
+    height: 0%;
 }
