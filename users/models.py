@@ -37,3 +37,10 @@ class LFUserProfile(models.Model):
     weightUnit = models.CharField(max_length=255) # Possible values: I - Imperial M - Metric
     preferredUnit = models.CharField(max_length=255) # PUser's prefered unit used in the workouts, etc. Possible values: I - Imperial M - Metric
     createdOn = models.DateTimeField()
+
+class SmartGymUser(model.Model):
+    user = models.OneToOneField(User)
+    is_instructor = models.BooleanField()
+    is_moderator = models.BooleanField()
+
+User.sgprofile = property(lambda u: SmartGymUser.object.get_or_create(user=u)[0])
