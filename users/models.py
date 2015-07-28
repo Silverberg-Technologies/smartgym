@@ -43,4 +43,4 @@ class SmartGymUser(models.Model):
     is_instructor = models.BooleanField()
     is_moderator = models.BooleanField()
 
-User.sgprofile = property(lambda u: SmartGymUser.object.get_or_create(user=u)[0])
+User.profile = property(lambda u: SmartGymUser.object.get_or_create(user=u)[0])
