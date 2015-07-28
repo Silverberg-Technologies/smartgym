@@ -1,5 +1,6 @@
 from django.contrib import admin
 from users.models import Groupsession
+from users.models import SmartGymUser
 
 # Register your models here.
 class GroupsessionAdmin(admin.ModelAdmin):
