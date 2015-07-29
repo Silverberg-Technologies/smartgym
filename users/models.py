@@ -7,12 +7,14 @@ from django.utils import timezone
 # Create your models here.
 class Groupsession(models.Model):
     name = models.CharField(max_length=128)
-    def __str__(self):
-        return self.name
     date_time = models.DateTimeField('date and time of session')
-    coach = models.CharField(max_length=128)
+    instructor = models.OneToOneField(SmartGymUser)
     description = models.CharField(max_length=1024)
     users_attending = models.ManyToManyField(User)
+    available_slots = models.IntegerField()
+
+    def __str__(self):
+        return self.name
 
 class Oauth2Codes(models.Model):
     user = models.OneToOneField(User)
