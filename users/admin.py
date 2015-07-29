@@ -10,4 +10,5 @@ class SmartGymUserAdmin(admin.ModelAdmin):
     list_display = ('is_moderator', 'is_instructor')
 
 admin.site.register(Groupsession, GroupsessionAdmin)
-admin.site.register(SmartGymUser, SmartGymUserAdmin)
+admin.site.unregister(User)
+admin.site.register(User, SmartGymUserAdmin)
