@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
 from users.models import Groupsession
 from users.models import SmartGymUser
 
@@ -7,7 +8,7 @@ from users.models import SmartGymUser
 class GroupsessionAdmin(admin.ModelAdmin):
     list_display = ('name','coach', 'date_time')
 
-class SmartGymUserAdmin(admin.ModelAdmin):
+class SmartGymUserAdmin(UserAdmin):
     list_display = ('is_moderator', 'is_instructor')
 
 admin.site.register(Groupsession, GroupsessionAdmin)
