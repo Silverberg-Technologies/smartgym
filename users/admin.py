@@ -8,8 +8,13 @@ from users.models import SmartGymUser
 class GroupsessionAdmin(admin.ModelAdmin):
     list_display = ('name','coach', 'date_time')
 
+class SmartGymInline(admin.StackedInline):
+    model = SmartGymUser
+    can_delete = False
+    verbose_name_plural = 'SmartGym users'
+
 class SmartGymUserAdmin(UserAdmin):
-    list_display = ('is_moderator', 'is_instructor')
+    inlines = (SmartGymInline, )
 
 admin.site.register(Groupsession, GroupsessionAdmin)
 admin.site.unregister(User)
