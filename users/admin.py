@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from users.models import Groupsession
 from users.models import SmartGymUser
 
