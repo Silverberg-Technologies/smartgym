@@ -6,7 +6,7 @@ from users.models import SmartGymUser
 
 # Register your models here.
 class GroupsessionAdmin(admin.ModelAdmin):
-    list_display = ('name','coach', 'date_time')
+    list_display = ('name','date_time', 'location', 'instructor', 'available_slots')
 
 class SmartGymInline(admin.StackedInline):
     model = SmartGymUser

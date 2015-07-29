@@ -8,6 +8,7 @@ from django.utils import timezone
 class Groupsession(models.Model):
     name = models.CharField(max_length=128)
     date_time = models.DateTimeField('date and time of session')
+    location = models.CharField(max_length=128)
     instructor = models.OneToOneField('SmartGymUser')
     description = models.CharField(max_length=1024)
     users_attending = models.ManyToManyField(User)
