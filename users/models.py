@@ -4,12 +4,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-# Create your models here.
+class SmartGymUser(models.Model):
+    user = models.OneToOneField(User)
+    is_instructor = models.BooleanField()
+    is_moderator = models.BooleanField()
+
 class Groupsession(models.Model):
     name = models.CharField(max_length=128)
     date_time = models.DateTimeField('date and time of session')
     location = models.CharField(max_length=128)
-    instructor = models.OneToOneField('SmartGymUser')
+    instructor = models.OneToOneField(SmartGymUser)
     description = models.CharField(max_length=1024)
     users_attending = models.ManyToManyField(User)
     available_slots = models.IntegerField()
@@ -41,9 +45,5 @@ class LFUserProfile(models.Model):
     preferredUnit = models.CharField(max_length=255) # PUser's prefered unit used in the workouts, etc. Possible values: I - Imperial M - Metric
     createdOn = models.DateTimeField()
 
-class SmartGymUser(models.Model):
-    user = models.OneToOneField(User)
-    is_instructor = models.BooleanField()
-    is_moderator = models.BooleanField()
 
 User.profile = property(lambda u: SmartGymUser.object.get_or_create(user=u)[0])
