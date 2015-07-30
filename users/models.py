@@ -13,7 +13,7 @@ class Groupsession(models.Model):
     name = models.CharField(max_length=128)
     date_time = models.DateTimeField('date and time of session')
     location = models.CharField(max_length=128)
-    instructor = models.OneToOneField(SmartGymUser, default = SmartGymUser.objects.get(id=0))
+    instructor = models.OneToOneField(SmartGymUser, default = lambda: SmartGymUser.objects.get(id=1))
     description = models.CharField(max_length=1024)
     users_attending = models.ManyToManyField(User)
     available_slots = models.IntegerField()
