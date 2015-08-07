@@ -46,4 +46,4 @@ class LFUserProfile(models.Model):
     createdOn = models.DateTimeField()
 
 
-#User.profile = property(lambda u: SmartGymUser.object.get_or_create(user=u)[0])
+User.profile = property(lambda u: SmartGymUser.object.get_or_create(user=u)[0])
