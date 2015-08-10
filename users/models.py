@@ -13,9 +13,9 @@ class Groupsession(models.Model):
     name = models.CharField(max_length=128)
     date_time = models.DateTimeField('date and time of session')
     location = models.CharField(max_length=128)
-    instructor = models.OneToOneField(SmartGymUser, default=None)
+    instructor = models.ForeignKey(User, related_name='group_instructor')
     description = models.CharField(max_length=1024)
-    users_attending = models.ManyToManyField(User)
+    users_attending = models.ManyToManyField(User, blank=True)
     available_slots = models.IntegerField()
 
     def __str__(self):
