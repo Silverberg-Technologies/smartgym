@@ -9,11 +9,14 @@
         </tr>
         {% for session in group_sessions %}
         <tr>
-            <td>{{ session.name }}</td>
-            <td>{{ session.date_time }}</td>
-            <td>{{ session.location }}</td>
-            <td>{{ users.filter(id={{ session.instructor_id }})[0].first_name }}</td>
+            <td class="{% cycle 'row1' 'row2' as rowcolors %}">{{ session.name }}</td>
+            <td class="{{ rowcolors }}">{{ session.date_time }}</td>
+            <td class="{{ rowcolors }}">{{ session.location }}</td>
+            <td class="{{ rowcolors }}">{{ session.instructor_name }}</td>
         </tr>
+        {% empty %}
+        <tr><td colspan="4">There are no group sessions available at the moment</td></tr>
+        {% endfor %}
         <!--{% if user in session.users_attending.all %}
         <form method="post" action="{% url 'users:groupsession' %}">
             {% csrf_token %}
@@ -27,7 +30,6 @@
        {% endif %}
        -->
     </table>
-    {% endfor %}
 {% else %}
 <h1>Welcome to SmartGym. Please log in <a href="{% url 'users:login' %}">HERE</a></h1>
 {% endif %}

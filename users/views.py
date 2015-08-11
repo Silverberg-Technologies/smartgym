@@ -150,6 +150,8 @@ def group_session(request):
     #        print(session.users_attending.all())
     group_sessions = Groupsession.objects.all()
     users = User.objects.all()
+    for session in group_sessions:
+        session.instructor_name = users.filter(id=session.instructor_id)[0].first_name
     payload = { 'group_sessions': group_sessions,
                 'users': users,
               }
