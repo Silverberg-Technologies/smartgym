@@ -1,12 +1,20 @@
     {% if user.is_authenticated %}
     <h1>List of group sessions available</h1>
-    <ul>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Date/Time</td>
+            <td>Location</td>
+            <td>Instructor</td>
+        </tr>
         {% for session in group_sessions %}
-        <li>
-        {{ session.name }} -
-        {{ session.coach }} -
-        {{ session.date_time }} -
-        {% if user in session.users_attending.all %}
+        <tr>
+            <td>{{ session.name }}</td>
+            <td>{{ session.date_time }}</td>
+            <td>{{ session.location }}</td>
+            <td>{{ users.filter(id={{ session.instructor_id }})[0].first_name }}</td>
+        </tr>
+        <!--{% if user in session.users_attending.all %}
         <form method="post" action="{% url 'users:groupsession' %}">
             {% csrf_token %}
             <button type="submit" name='button' value="{{ session.id }}.0">Don't attend</button>
@@ -17,9 +25,9 @@
             <button type="submit" name='button' value="{{ session.id }}.1">Attend</button>
        </form>
        {% endif %}
-    </li>
+       -->
+    </table>
     {% endfor %}
-</ul>
 {% else %}
 <h1>Welcome to SmartGym. Please log in <a href="{% url 'users:login' %}">HERE</a></h1>
 {% endif %}
