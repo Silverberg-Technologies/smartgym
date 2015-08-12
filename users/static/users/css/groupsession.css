@@ -39,7 +39,7 @@ td.row2 {
     width: 20%;
 }
 
-td.row1 td.row2 {
+td.row1, td.row2 {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-collapse: collapse;
