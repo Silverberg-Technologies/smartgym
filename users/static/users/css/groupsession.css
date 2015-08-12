@@ -10,6 +10,7 @@ table#sessions {
     margin: 0 auto;
     width: 100%;
     padding: 5%;
+    border-collapse: collapse;
 }
 
 thead {
@@ -42,5 +43,4 @@ td.row2 {
 td.row1, td.row2 {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    border-collapse: collapse;
 }
