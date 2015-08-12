@@ -20,6 +20,7 @@
                 <th>Available Slots</th>
             </tr>
         </thead>
+        <tbody>
         {% for session in group_sessions %}
         <tr>
             <td class="{% cycle 'row1' 'row2' as rowcolors %}">{{ session.name }}</td>
@@ -33,6 +34,7 @@
         {% empty %}
         <tr><td colspan="4"><p>There are no group sessions available at the moment</p></td></tr>
         {% endfor %}
+        </tbody>
         <!--{% if user in session.users_attending.all %}
         <form method="post" action="{% url 'users:groupsession' %}">
             {% csrf_token %}
