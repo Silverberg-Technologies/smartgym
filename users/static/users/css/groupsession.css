@@ -1,12 +1,23 @@
 h1#sessions_title {
+    float: center;
     margin: 0 auto;
     width: 100%;
     padding: 5%;
     
 }
 
-td.row1 {
+table#sessions {
     margin: 0 auto;
     width: 100%;
     padding: 5%;
+}
+
+td.row1 {
+    margin: 2px auto;
+    width: 20%;
+}
+
+td.row2 {
+    margin: 2px auto;
+    width: 20%;
 }
