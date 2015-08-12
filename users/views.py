@@ -152,6 +152,7 @@ def group_session(request):
     users = User.objects.all()
     for session in group_sessions:
         session.instructor_name = users.filter(id=session.instructor_id)[0].first_name
+        session.free_slots = session.available_slots - len(session.users_attending.all())
     payload = { 'group_sessions': group_sessions,
                 'users': users,
               }
