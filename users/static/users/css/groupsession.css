@@ -12,6 +12,14 @@ table#sessions {
     padding: 5%;
 }
 
+thead {
+    text-transform: uppercase;
+}
+
+tr {
+    margin: 5px auto;
+}
+
 td.row1 {
     margin: 2px auto;
     width: 20%;
