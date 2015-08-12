@@ -18,6 +18,16 @@ thead {
 
 tr {
     margin: 5px auto;
+    border: solid 1px solid black;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+tr:hover {
+    opacity: 0.6;
 }
 
 td.row1 {
