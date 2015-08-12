@@ -30,17 +30,23 @@ tr:hover {
 }
 
 td.row1 td.row2 {
-    border-collapse: collapse;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    border-collapse: collapse;
 }
 
 td.row1 {
     margin: 2px auto;
     width: 20%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
 }
 
 td.row2 {
     margin: 2px auto;
     width: 20%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
 }
