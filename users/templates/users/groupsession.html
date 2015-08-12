@@ -9,15 +9,15 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <h1 id="sessions_title">List of group sessions available</h1>
     <table id="sessions">
+    <caption id="sessions_title">List of group sessions available</caption>
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Date/Time</td>
-                <td>Location</td>
-                <td>Instructor</td>
-                <td>Available Slots</td>
+                <th>Name</th>
+                <th>Date/Time</th>
+                <th>Location</th>
+                <th>Instructor</th>
+                <th>Available Slots</th>
             </tr>
         </thead>
         {% for session in group_sessions %}
